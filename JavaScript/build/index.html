@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="min-h-screen grid place-content-center">
+    <div class="bg-emerald-500 w-52 h-52 
+    rounded-full shadow-2xl grid place-content-center">
+    <div class="bg-teal-200 w-32 h-32 rounded-full 
+    grid place-content-center">
+        <div class="bg-red-500 w-16 h-16 rounded-full">
+
+        </div>
+    </div>
+    </div>
+
+    </div>
+
+
+    <script>
+        const User = {
+            printName() {
+                console.log(this.name);
+            },
+
+            init(name, password) {
+                this.name = name
+                this.password = password
+            }
+        }
+
+        const Admin = Object.create(User)
+        Admin.init = function (name, password, course) {
+            User.init.call(this, name, password)
+            this.course = course
+        }
+
+        Admin.stats = function () {
+            console.log("Stats");
+        }
+
+        const kedar = Object.create(Admin)
+        kedar.init("kedar", 123456)
+        kedar.printName()
+        kedar.stats()
+
+    </script>
+</body>
+
+</html>

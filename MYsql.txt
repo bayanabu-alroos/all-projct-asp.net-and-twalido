@@ -1,0 +1,17 @@
+in file  Program.cs
+
+
+builder.Services.AddDbContext<TechinalQuestionDbConext>(option=>option.UseMySQL(builder.Configuration.GetConnectionString("mysqlconnect")));
+
+
+in file appsettings.json
+
+"mysqlconnect": "Server=127.0.0.1;Database=EF-TEQuestion;User=root;Password=123456;SslMode=none;SslMode=Preferred"
+
+install in Package Manager
+
+Install-Package MySql.Data
+Install-Package MySql.EntityFrameworkCore
+
+
+AccountEntityConfiguration

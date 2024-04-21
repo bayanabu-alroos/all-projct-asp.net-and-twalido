@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Laptop>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-8 offset-2">
+            <h1 class="text-center text-primary"> Laptop Image </h1>
+            <a class="btn btn-sm btn-primary float-end p-1 m-1" asp-controller="Laptop" asp-action="AddLaptop">Add Laptop</a>
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr class="text-center bg-dark text-light">
+                        <th>#</th>
+                        <th>Image Laptop</th>
+                        <th>Brand</th>
+                        <th>Description</th>
+                        <th>Action </th>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    @if(Model != null)
+                    {
+                        @foreach (var lap in Model)
+                        {
+                            <tr>
+                                <td>@lap.Id</td>
+                                <td><img src="@Url.Content(lap.Path)" height="100px" width="100px" /></td>
+                                <td>@lap.Brand</td>
+                                <td>@lap.Description</td>
+                                <td>
+                                   
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
